@@ -169,7 +169,6 @@ class Controller:
 
         self.apply_result(result)
 
-    # Controlador para la umbralización
     def binarization(self, value):
         """
         Objetivo: Binarizar la imagen en escala de grises con un umbral.
@@ -413,7 +412,6 @@ class Controller:
         self.window.yi_spinBox.setValue(0)
         self.window.yf_spinBox.setValue(height)
 
-    # Controlador para recortar una imagen
     def crop(self, checked=False):
         """
         Objetivo: Recortar la imagen de trabajo usando las coordenadas de los SpinBox.
@@ -440,7 +438,6 @@ class Controller:
         self.window.image = cropped
         self.apply_result(cropped)
 
-    # Restablecer imagen original
     def reset_image(self):
         """
         Objetivo: Restaurar la imagen original y descartar las modificaciones.
@@ -452,7 +449,6 @@ class Controller:
         if self.original_image is None:
             return
 
-        # Establece aquí los valores iniciales de tus controles.
         self.window.brightness_slider.setValue(0)
         self.window.channel_brightness_slider.setValue(0)
         self.window.grayscale_selector.setCurrentText("Original")
@@ -462,7 +458,6 @@ class Controller:
         self.window.zoom_slider.setValue(1)
         self.window.weights_spinBox.setValue(0)
 
-        # Restablece los rangos y valores de los controles de recorte.
         self.current_image = self.original_image.copy()
         self.set_crop_valid_ranges()
 
