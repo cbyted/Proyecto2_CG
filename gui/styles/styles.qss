@@ -1,0 +1,207 @@
+/* Ventana y fondo principal */
+QMainWindow,
+QWidget#centralwidget {
+    background-color: #F4F1EA;
+    color: #302D29;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+/* Paneles principales */
+QWidget#header,
+QWidget#controlls {
+    background-color: #EAE5DA;
+}
+
+/* Botones del encabezado */
+QWidget#header QPushButton {
+    background-color: #FAF8F3;
+    color: #39342F;
+    border: 1px solid #D4CCBE;
+    border-radius: 6px;
+    padding: 7px 12px;
+}
+
+QWidget#header QPushButton:hover {
+    background-color: #EFE6D9;
+    border-color: #C87852;
+}
+
+QWidget#header QPushButton:pressed {
+    background-color: #E2D3C2;
+}
+
+QWidget#header QPushButton:disabled {
+    color: #AAA399;
+    background-color: #E7E2D9;
+    border-color: #D8D2C8;
+}
+
+/* Visor de imágenes y pestañas */
+QTabWidget#image_viewer::pane {
+    background-color: #DDD8CE;
+    border: 1px solid #CEC7BA;
+    border-radius: 4px;
+}
+
+QTabWidget#image_viewer::tab-bar {
+    left: 6px;
+}
+
+QTabWidget#image_viewer QTabBar::tab {
+    background-color: #E7E1D7;
+    color: #6B6258;
+    border: 1px solid #D2CABC;
+    padding: 6px 14px;
+}
+
+QTabWidget#image_viewer QTabBar::tab:selected {
+    background-color: #FAF8F3;
+    color: #302D29;
+}
+
+QTabWidget#image_viewer QTabBar::tab:hover {
+    background-color: #F2ECE2;
+    color: #302D29;
+}
+
+QScrollArea#scrollArea {
+    background-color: #DDD8CE;
+    border: none;
+}
+
+QLabel#image_label {
+    background-color: #DDD8CE;
+    color: #8A8277;
+}
+
+/* Botones de los controles */
+QWidget#controlls QPushButton {
+    background-color: #FAF8F3;
+    color: #39342F;
+    border: 1px solid #D4CCBE;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+QWidget#controlls QPushButton:hover {
+    background-color: #EFE6D9;
+    border-color: #C87852;
+}
+
+QWidget#controlls QPushButton:pressed {
+    background-color: #E2D3C2;
+}
+
+QWidget#controlls QPushButton:disabled {
+    color: #AAA399;
+    background-color: #E7E2D9;
+    border-color: #D8D2C8;
+}
+
+/* Grupos de controles */
+QWidget#controlls QGroupBox {
+    color: #A95738;
+    background-color: #F4F1EA;
+    border: 1px solid #D8D0C3;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+QWidget#controlls QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 8px;
+    padding: 0 4px;
+}
+
+/* Etiquetas de controles */
+QWidget#controlls QLabel {
+    color: #49443E;
+}
+
+/* Selectores */
+QWidget#controlls QComboBox {
+    color: #39342F;
+    background-color: #FAF8F3;
+    border: 1px solid #D4CCBE;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+QWidget#controlls QComboBox:hover {
+    border-color: #C87852;
+}
+
+QWidget#controlls QComboBox::drop-down {
+    border: none;
+    width: 18px;
+}
+
+QWidget#controlls QComboBox QAbstractItemView {
+    color: #39342F;
+    background-color: #FAF8F3;
+    selection-background-color: #E9D6C6;
+    selection-color: #302D29;
+    border: 1px solid #D4CCBE;
+}
+
+/* Campos numéricos */
+QWidget#controlls QSpinBox {
+    color: #39342F;
+    background-color: #FAF8F3;
+    border: 1px solid #D4CCBE;
+    border-radius: 4px;
+}
+
+QWidget#controlls QSpinBox:focus {
+    border-color: #C87852;
+}
+
+/* Sliders */
+QWidget#controlls QSlider::groove:horizontal {
+    height: 5px;
+    background-color: #D7CFC2;
+    border-radius: 2px;
+}
+
+QWidget#controlls QSlider::handle:horizontal {
+    width: 14px;
+    margin: -5px 0;
+    background-color: #C87852;
+    border: 1px solid #FAF8F3;
+    border-radius: 7px;
+}
+
+QWidget#controlls QSlider::handle:horizontal:hover {
+    background-color: #A95738;
+}
+
+/* Footer */
+QWidget#footer {
+    background-color: #EAE5DA;
+    border: 1px solid #D8D0C3;
+    border-radius: 6px;
+}
+
+QWidget#footer QLabel {
+    color: #49443E;
+    padding: 0 5px;
+}
+
+QWidget#footer QLabel#name_label {
+    color: #A95738;
+    font-weight: bold;
+}
+
+QWidget#footer QLabel#path_label {
+    color: #756D63;
+}
+
+QWidget#footer QLabel#format_label,
+QWidget#footer QLabel#size_label,
+QWidget#footer QLabel#dim_label {
+    color: #39342F;
+}
+

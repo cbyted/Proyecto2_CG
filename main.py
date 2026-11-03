@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+import sys
+from PyQt6.QtWidgets import QApplication
+from gui.ui import *
+
+
+def main():
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
