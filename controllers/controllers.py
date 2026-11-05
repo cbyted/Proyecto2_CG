@@ -87,6 +87,11 @@ class Controller:
         self.current_image = image.copy() if image is not None else None
         self.set_crop_valid_ranges()
 
+        if image is not None:
+            area = min(image.shape[:2]) // 2
+            self.window.zoom_slider.setRange(1, min(image.shape[:2]) // area)
+            self.window.zoom_slider.setValue(0)
+
     def apply_result(self, result):
         """
         Objetivo: Guardar y mostrar el resultado de una transformación.
@@ -286,7 +291,7 @@ class Controller:
             return
 
         result = reduce_resolution(self.current_image, factor)
-        self.apply_result(result)
+        self.window.display_image(result)
 
     def rotate(self, angle):
         """
@@ -300,7 +305,7 @@ class Controller:
             return
 
         result = rotate_image(self.current_image, angle)
-        self.apply_result(result)
+        self.window.display_image(result)
 
     def zoom_image(self, value):
         """
@@ -311,13 +316,11 @@ class Controller:
             - No devuelve ningún valor. Muestra la imagen ampliada.
         """
 
-        self.window.zoomValue_label.setText(f"{value} %")
-
         if self.current_image is None:
             return
 
         factor = value
-        min_side = max(self.current_image.shape[:2])
+        min_side = min(self.current_image.shape[:2])
         area = max(1, min_side // factor)
 
         result = zoom(self.current_image, area, factor)
@@ -365,9 +368,7 @@ class Controller:
 
         color = get_color(self.current_image, channel)
 
-        # Crear una ventana secundaria cuya ventana principal es self.window
         dialog = QDialog(self.window)
-        dialog.setWindowTitle(f"Histograma: {selected}")
         dialog.resize(700, 450)
 
         layout = QVBoxLayout(dialog)
@@ -379,12 +380,8 @@ class Controller:
         ax = figure.add_subplot(111)
         ax.hist(color.ravel(), bins=256, color=channel)
         ax.set_title(f"Histograma: {selected}")
-        ax.set_xlabel("Intensidad")
-        ax.set_ylabel("Frecuencia")
 
         canvas.draw()
-
-        self.histogram_dialog = dialog
         dialog.show()
 
     def set_crop_valid_ranges(self):
@@ -460,6 +457,9 @@ class Controller:
 
         self.current_image = self.original_image.copy()
         self.set_crop_valid_ranges()
+
+        self.window.zoom_slider.setRange(1, 100)
+        self.window.zoom_slider.setValue(0)
 
         self.window.image = self.current_image
         self.window.display_image(self.current_image)

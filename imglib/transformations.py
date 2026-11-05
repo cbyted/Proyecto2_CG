@@ -116,29 +116,16 @@ def rotate_image(image, angle):
             f"Function expects a numeric value for 'angle' but received {angle} instead."
         )
 
-    # Normalzar el angulo
     angle = angle % 360
 
-    if angle == 90:
+    if angle == 0:
+        return image.copy()
+    elif angle == 90:
         return cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
     elif angle == 180:
         return cv2.rotate(image, cv2.ROTATE_180)
-    elif angle == 270:
+    else:  # 270
         return cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
-    elif angle == 0:
-        return image.copy()
-
-    # Dimesiones
-    height, width = image.shape[:2]
-
-    # Centro de rotación
-    center = (width // 2, height // 2)
-
-    # matriz de rotación
-    rotation_matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
-
-    # Rotar la imagen
-    return cv2.warpAffine(image, rotation_matrix, (width, height))
 
 
 """
