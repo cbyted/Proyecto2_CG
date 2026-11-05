@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
             - Actualiza la vista, la información y el controlador
         """
         path, _ = QFileDialog.getOpenFileName(
-            self, "Abrir imagen", "", "Imágenes (*.png *.jpg *.jpeg *.bmp)"
+            self, "Abrir imagen", "", "Imágenes (*.png *.jpg *.jpeg)"
         )
         if not path:
             return
@@ -121,9 +121,9 @@ class MainWindow(QMainWindow):
             raise ValueError(f"Formato de imagen no compatible: {image.shape}")
 
         self.pixmap = QPixmap.fromImage(qimage)
-        self._update_preview()
+        self.update_preview()
 
-    def _update_preview(self):
+    def update_preview(self):
         """
         Objetivo: Actualizar la vista previa de la imagen en la interfaz.
         Recibe:

@@ -88,6 +88,7 @@ class Controller:
         self.set_crop_valid_ranges()
 
         if image is not None:
+            # Zoom slider
             area = min(image.shape[:2]) // 2
             self.window.zoom_slider.setRange(1, min(image.shape[:2]) // area)
             self.window.zoom_slider.setValue(0)

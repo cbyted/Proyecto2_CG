@@ -52,38 +52,3 @@ def get_color(image, channel=None, custom=None):
         print("Image must be in 2D o 3D")
 
     return color
-
-
-"""
-Objetivo: Calcular el histograma de cada canal RGB y devolver los datos de estos.
-Recive:
-    - una imagen
-    - El canal que se quiere mostrar 
-      Soporta canales RGB y CMY:
-        * Rojo: "red"
-        * Verde: "green"
-        * Azul: "blue"
-        * Cyan: "cyan"
-        * Magenta: "magenta"
-        * Amarillo. "yellow"
-Devuelve:
-    - Los histogramas de la imagen 
-"""
-
-
-def show_histogram(image, channel):
-    if image is None:
-        print("Please enter a valid image.")
-        return False
-
-    if channel is None:
-        print("Please specify a channel.")
-        return False
-
-    color = get_color(image, channel)
-
-    plt.figure(figsize=(10, 6))
-    plt.subplot(1, 1, 1)
-    plt.hist(color.ravel(), bins=256, color=channel)
-    plt.title(f"Histogram for color {channel}")
-    plt.show()
