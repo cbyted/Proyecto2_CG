@@ -376,9 +376,20 @@ class Controller:
         layout.addWidget(canvas)
 
         ax = figure.add_subplot(111)
-        ax.hist(color.ravel(), bins=256, color=channel)
+        ax.hist(
+            color.ravel(),
+            bins=256,
+            range=(0, 256),
+            color=channel,
+            histtype="step",
+            linewidth=1.5,
+        )
+        ax.set_xlabel("Intensidad del píxel")
+        ax.set_ylabel("Número de píxeles")
+        ax.set_xlim(0, 255)
         ax.set_title(f"Histograma: {selected}")
 
+        figure.tight_layout()
         canvas.draw()
         dialog.show()
 
