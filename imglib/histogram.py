@@ -31,14 +31,10 @@ def get_color(image, channel=None, custom=None):
     if channel not in channels:
         raise ValueError(f"Canal desconocido: {channel}")
 
-    # Convierte la imagen a np.darray si aún no lo es
-    image = np.asarray(image)
-
     # convierte una imagen tipo float a uint8
     if image.max() <= 1.0:
         image = image * 255
 
-    # Convertir a uint8 para mostrar los valores de [0, 255]
     image = np.clip(image, 0, 255).astype(np.uint8)
 
     dim = image.ndim

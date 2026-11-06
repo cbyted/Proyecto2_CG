@@ -338,7 +338,7 @@ class Controller:
         result = inv_color(self.current_image)
         self.apply_result(result)
 
-    def histograms(self, _checked=False):
+    def histograms(self, checked=False):
         """
         Objetivo: Crear y mostrar el histograma del canal seleccionado.
         Recibe:
