@@ -162,5 +162,9 @@ def zoom(image, area, factor):
     end_c = (width // 2) + (area // 2)
 
     region = image[start_r:end_r, start_c:end_c]
-    zoomed = np.kron(region, np.ones((factor, factor, 1)))
+
+    if region.ndim == 2:
+        zoomed = np.kron(region, np.ones((factor, factor)))
+    else:
+        zoomed = np.kron(region, np.ones((factor, factor, 1)))
     return zoomed.astype(image.dtype)
