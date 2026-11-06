@@ -98,8 +98,7 @@ def reduce_resolution(image, factor):
 
 
 """
-Objetivo: Rotar una imagen una cantidad de grados específica. Usa cv2.rotate() para angulos multiplos de 90 grados 
-y cv2.getRotationMatrix2D para otros angulos.
+Objetivo: Rotar una imagen usando cv2.rotate 
 Recive:
     - La imagen tipo np.darray
     - El angulo de rotación en grados
