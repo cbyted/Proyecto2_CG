@@ -67,10 +67,8 @@ Soporta:
     - uint8:  [0, 255]
     - uint16: [0, 65535]
     - floats: [0.0, 1.0]
-Por defecto, el canal alfa no se invierte
 Recive:
     - una imagen tipo np.array
-    - Booleano que determina si se invierte el canal alpha
 Devuelve:
     - La imagen con los colores invertidos
 """

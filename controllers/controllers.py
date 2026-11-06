@@ -267,7 +267,7 @@ class Controller:
         Devuelve:
             - No devuelve ningún valor. Muestra la imagen resultante.
         """
-        if (self.current_image is None) or (self.current_image is None):
+        if (self.current_image is None) or (self.second_image is None):
             return
 
         images = [self.current_image, self.second_image]
