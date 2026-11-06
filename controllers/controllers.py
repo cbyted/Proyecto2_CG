@@ -159,7 +159,7 @@ class Controller:
             return
 
         if method == "Original":
-            result = self.current_image
+            result = self.original_image
         elif method == "Promedio":
             result = average(self.current_image)
         elif method == "Midgray":
