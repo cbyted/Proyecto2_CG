@@ -223,7 +223,7 @@ class Controller:
             - La imagen cargada o None si se cancela o ocurre un error.
         """
         path, _ = QFileDialog.getOpenFileName(
-            self.window, "Abrir imagen", "", "Imágenes (*.png *.jpg *.jpeg *.bmp)"
+            self.window, "Abrir imagen", "", "Imágenes (*.png *.jpg *.jpeg)"
         )
         if not path:
             return
