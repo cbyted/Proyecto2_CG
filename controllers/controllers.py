@@ -87,12 +87,6 @@ class Controller:
         self.current_image = image.copy() if image is not None else None
         self.set_crop_valid_ranges()
 
-        if image is not None:
-            # Zoom slider
-            area = min(image.shape[:2]) // 2
-            self.window.zoom_slider.setRange(1, min(image.shape[:2]) // area)
-            self.window.zoom_slider.setValue(0)
-
     def apply_result(self, result):
         """
         Objetivo: Guardar y mostrar el resultado de una transformación.
@@ -320,7 +314,10 @@ class Controller:
         if self.current_image is None:
             return
 
-        factor = value
+        if value > 0:
+            factor = value
+        else:
+            factor = 1
         min_side = min(self.current_image.shape[:2])
         area = max(1, min_side // factor)
 
@@ -460,7 +457,7 @@ class Controller:
         self.set_crop_valid_ranges()
 
         self.window.zoom_slider.setRange(1, 100)
-        self.window.zoom_slider.setValue(0)
+        self.window.zoom_slider.setValue(1)
 
         self.window.image = self.current_image
         self.window.display_image(self.current_image)
